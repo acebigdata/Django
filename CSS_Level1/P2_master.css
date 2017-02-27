@@ -1,0 +1,19 @@
+body{
+    background: url(http://www.publicdomainpictures.net/pictures/150000/velka/tropical-beach-1454007190ZAK.jpg);
+
+}
+div{
+    background-color: #434343;
+    border-color: #E03C8A;
+    border-width: 5px;
+    border-style: double;
+}
+
+p{
+    background-color: : #08192D;
+    color: #FCFAF2;
+}
+
+span{
+    color: #5DAC81;
+}

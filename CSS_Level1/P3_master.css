@@ -1,0 +1,25 @@
+.firstDiv{
+    background-color: #CC543A;
+}
+
+.secondDiv{
+    background-color: #B9887D;
+}
+
+#singledout{
+    background-color:#6C6024;
+    text-decoration: line-through;
+}
+
+h3 + ul{
+    border: 4px dotted purple;
+}
+
+li + a{
+    color: red;
+}
+
+li a[href="https://www.ft.com/"]{
+    color: blue;
+    border: 2px solid orange
+}
