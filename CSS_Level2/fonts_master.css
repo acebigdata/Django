@@ -1,0 +1,22 @@
+h1 {
+    font-family: "MetricWeb", serif;
+    text-align: center;
+}
+
+p {
+    font-family: "FinancierDisplayWeb", sans-serif;
+}
+
+body {
+    font-size: 20px;
+    background: #f7e9d9;
+    color: #333333;
+}
+
+#two{
+    font-size: 1em;
+    border: 2px solid #2e6e9e;
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+}
