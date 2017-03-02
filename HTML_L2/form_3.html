@@ -1,27 +1,98 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Hotel Feedback</title>
-    </head>
-    <body>
-        <h1>Hotel Feedback Form</h1>
-        <form method="get">
-            <h3>Are you from inside the US? Or Outside the US?</h3>
-            <label for="inusa">Inside: </label>
-            <input id = "inusa" type="radio" name="loc" value="inside">
-            <label for="outusa">Outside:</label>
-            <input id = "outusa" type="radio" name="loc" value="outside">
-
-            <h3>How was your service</h3>
-            <select class="" name="stars">
-                <option value="Great">3</option>
-                <option value="OK">2</option>
-                <option value="Bad">1</option>
-            </select>
-            <h3>Any other feedback?</h3>
-            <textarea name="mytext" rows="8" cols="80"></textarea>
-            <input type="submit" name="" value="Submit">
-        </form>
-    </body>
-</html>
+isaac@ubuntu:~$ git clone https://github.com/acebigdata/Django.git
+Cloning into 'Django'...
+remote: Counting objects: 308, done.        
+remote: Compressing objects: 100% (245/245), done.        
+remote: Total 308 (delta 57), reused 298 (delta 47), pack-reused 0        
+Receiving objects: 100% (308/308), 6.03 MiB | 9.19 MiB/s, done.
+Resolving deltas: 100% (57/57), done.
+Checking connectivity... done.
+isaac@ubuntu:~$ ll
+total 192
+drwxr-xr-x 29 isaac isaac 4096 Mar  2 16:10 ./
+drwxr-xr-x  3 root  root  4096 Feb 17 23:08 ../
+drwxrwxr-x 20 isaac isaac 4096 Feb 18 00:16 anaconda3/
+drwxrwxr-x  7 isaac isaac 4096 Mar  2 15:23 .atom/
+-rw-rw-r--  1 isaac isaac   50 Feb 26 22:17 .bash_aliases
+-rw-rw-r--  1 isaac isaac   50 Feb 26 22:14 .bash_aliases~
+-rw-------  1 isaac isaac 6418 Mar  2 15:25 .bash_history
+-rw-r--r--  1 isaac isaac  220 Feb 17 23:08 .bash_logout
+-rw-r--r--  1 isaac isaac 3939 Feb 18 00:17 .bashrc
+-rw-r--r--  1 isaac isaac 3855 Feb 18 00:17 .bashrc-anaconda3.bak
+drwx------ 18 isaac isaac 4096 Feb 27 10:22 .cache/
+drwx------  3 isaac isaac 4096 Feb 17 23:52 .compiz/
+drwx------ 18 isaac isaac 4096 Feb 28 15:01 .config/
+drwxrwxr-x  2 isaac isaac 4096 Feb 18 00:03 .continuum/
+drwx------  3 root  root  4096 Mar  2 15:23 .dbus/
+drwxr-xr-x  2 isaac isaac 4096 Feb 17 23:17 Desktop/
+drwxrwxr-x 12 isaac isaac 4096 Mar  2 16:10 Django/
+drwxr-xr-x  2 isaac isaac 4096 Feb 17 23:17 Documents/
+drwxr-xr-x  2 isaac isaac 4096 Feb 17 23:59 Downloads/
+-rw-rw-r--  1 isaac isaac 2400 Feb 28 17:42 .emacs
+-rw-rw-r--  1 isaac isaac 2371 Feb 28 16:42 .emacs~
+drwx------  5 isaac isaac 4096 Feb 27 00:14 .emacs.d/
+drwxrwxr-x  3 isaac isaac 4096 Feb 18 00:40 emacs-starter-kit/
+-rw-r--r--  1 isaac isaac 8980 Feb 17 23:08 examples.desktop
+drwx------  2 isaac isaac 4096 Mar  2 15:27 .gconf/
+-rw-rw-r--  1 isaac isaac   56 Feb 18 07:13 .gitconfig
+-rw-------  1 isaac isaac   39 Feb 26 18:27 .git-credentials
+drwx------  3 isaac isaac 4096 Feb 17 23:34 .gnome/
+drwx------  3 isaac isaac 4096 Mar  2 15:27 .gnupg/
+-rw-------  1 isaac isaac 2846 Mar  2 15:27 .ICEauthority
+drwxr-xr-x  5 isaac isaac 4096 Feb 18 00:45 .ipython/
+drwxr-xr-x  2 isaac isaac 4096 Feb 18 22:15 .jupyter/
+drwx------  3 isaac isaac 4096 Feb 17 23:17 .local/
+drwx------  4 isaac isaac 4096 Feb 17 23:31 .mozilla/
+drwxr-xr-x  2 isaac isaac 4096 Feb 17 23:17 Music/
+drwxr-xr-x  2 isaac isaac 4096 Feb 17 23:17 Pictures/
+drwx------  3 isaac isaac 4096 Feb 17 23:34 .pki/
+drwxrwxr-x 11 isaac isaac 4096 Feb 28 12:20 PrimerPy/
+-rw-r--r--  1 isaac isaac  655 Feb 17 23:08 .profile
+drwxr-xr-x  2 isaac isaac 4096 Feb 17 23:17 Public/
+-rw-r--r--  1 isaac isaac    0 Feb 17 23:30 .sudo_as_admin_successful
+drwxr-xr-x  2 isaac isaac 4096 Feb 17 23:17 Templates/
+drwxr-xr-x  2 isaac isaac 4096 Feb 17 23:17 Videos/
+-rw-------  1 isaac isaac  149 Mar  2 15:27 .Xauthority
+-rw-------  1 isaac isaac   82 Mar  2 15:27 .xsession-errors
+-rw-------  1 isaac isaac 1106 Mar  2 15:26 .xsession-errors.old
+isaac@ubuntu:~$ cd Django/
+isaac@ubuntu:~/Django$ ll
+total 48
+drwxrwxr-x 12 isaac isaac 4096 Mar  2 16:10 ./
+drwxr-xr-x 29 isaac isaac 4096 Mar  2 16:10 ../
+drwxrwxr-x  2 isaac isaac 4096 Mar  2 16:10 Bootstrap/
+drwxrwxr-x  2 isaac isaac 4096 Mar  2 16:10 CSS_Level1/
+drwxrwxr-x  2 isaac isaac 4096 Mar  2 16:10 CSS_Level2/
+drwxrwxr-x 17 isaac isaac 4096 Mar  2 16:10 Ex Files/
+drwxrwxr-x  8 isaac isaac 4096 Mar  2 16:10 .git/
+drwxrwxr-x  2 isaac isaac 4096 Mar  2 16:10 HTML_L1/
+drwxrwxr-x  2 isaac isaac 4096 Mar  2 16:10 HTML_L2/
+drwxrwxr-x  2 isaac isaac 4096 Mar  2 16:10 Python/
+drwxrwxr-x  3 isaac isaac 4096 Mar  2 16:10 PythonL2/
+drwxrwxr-x  2 isaac isaac 4096 Mar  2 16:10 Spectrum_V/
+isaac@ubuntu:~/Django$ cd HTML_L2/
+isaac@ubuntu:~/Django/HTML_L2$ ll
+total 40
+drwxrwxr-x  2 isaac isaac 4096 Mar  2 16:10 ./
+drwxrwxr-x 12 isaac isaac 4096 Mar  2 16:10 ../
+-rw-rw-r--  1 isaac isaac 1623 Mar  2 16:10 ass_ans.html
+-rw-rw-r--  1 isaac isaac  487 Mar  2 16:10 Form_2.html
+-rw-rw-r--  1 isaac isaac  953 Mar  2 16:10 form_3.html
+-rw-rw-r--  1 isaac isaac  653 Mar  2 16:10 forms.html
+-rw-rw-r--  1 isaac isaac  821 Mar  2 16:10 Part2_Table_Quiz.txt
+-rw-rw-r--  1 isaac isaac 1187 Mar  2 16:10 table_quiz.html
+-rw-rw-r--  1 isaac isaac  566 Mar  2 16:10 tables.html
+-rw-rw-r--  1 isaac isaac  176 Mar  2 16:10 thanks.html
+isaac@ubuntu:~/Django/HTML_L2$ ll
+total 40
+drwxrwxr-x  2 isaac isaac 4096 Mar  2 16:10 ./
+drwxrwxr-x 12 isaac isaac 4096 Mar  2 16:10 ../
+-rw-rw-r--  1 isaac isaac 1623 Mar  2 16:10 ass_ans.html
+-rw-rw-r--  1 isaac isaac  487 Mar  2 16:10 Form_2.html
+-rw-rw-r--  1 isaac isaac  953 Mar  2 16:10 form_3.html
+-rw-rw-r--  1 isaac isaac  653 Mar  2 16:10 forms.html
+-rw-rw-r--  1 isaac isaac  821 Mar  2 16:10 Part2_Table_Quiz.txt
+-rw-rw-r--  1 isaac isaac 1187 Mar  2 16:10 table_quiz.html
+-rw-rw-r--  1 isaac isaac  566 Mar  2 16:10 tables.html
+-rw-rw-r--  1 isaac isaac  176 Mar  2 16:10 thanks.html
+isaac@ubuntu:~/Django/HTML_L2$ 
+isaac@ubuntu:~/Django/HTML_L2$ 
