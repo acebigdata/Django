@@ -1,0 +1,18 @@
+BEGIN TRANSACTION;
+CREATE TABLE Employees(ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, Fname TEXT NOT NULL, Lname TEXT NOT NULL, Age INTEGER NOT NULL, Address TEXT, Salary REAL, HireDate TEXT, 'Profile' TEXT);
+INSERT INTO "Employees" VALUES(1,'Isaac','Zhou',32,'Hawaii',5000000.0,'2017-03-02','acebigdata');
+INSERT INTO "Employees" VALUES(3,'Isaac','Zhou',32,'New York, NY',5000000.0,'2017-03-02',NULL);
+INSERT INTO "Employees" VALUES(4,'Isaac','Zhou',32,'New York, NY',5000000.0,'2017-03-02',NULL);
+INSERT INTO "Employees" VALUES(5,'Isaac','Zhou',32,'New York, NY',5000000.0,'2017-03-02',NULL);
+INSERT INTO "Employees" VALUES(6,'Isaac','Zhou',32,'New York, NY',5000000.0,'2017-03-02',NULL);
+INSERT INTO "Employees" VALUES(7,'Isaac','Zhou',32,'New York, NY',5000000.0,'2017-03-02',NULL);
+INSERT INTO "Employees" VALUES(8,'Isaac','Zhou',32,'New York, NY',5000000.0,'2017-03-02',NULL);
+INSERT INTO "Employees" VALUES(9,'Isaac','Zhou',32,'New York, NY',5000000.0,'2017-03-02',NULL);
+INSERT INTO "Employees" VALUES(10,'Isaac','Zhou',32,'New York, NY',5000000.0,'2017-03-02',NULL);
+INSERT INTO "Employees" VALUES(11,'Isaac','Zhou',32,'New York, NY',5000000.0,'2017-03-02',NULL);
+INSERT INTO "Employees" VALUES(12,'Isaac','Zhou',32,'New York, NY',5000000.0,'2017-03-02',NULL);
+INSERT INTO "Employees" VALUES(13,'Isaac','Zhou',32,'New York, NY',5000000.0,'2017-03-02',NULL);
+INSERT INTO "Employees" VALUES(14,'Isaac','Zhou',32,'New York, NY',5000000.0,'2017-03-02',NULL);
+DELETE FROM "sqlite_sequence";
+INSERT INTO "sqlite_sequence" VALUES('Employees',14);
+COMMIT;
