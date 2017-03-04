@@ -23,5 +23,5 @@ def stringBits(my_str):
     print(my_word)
 
 stringBits("Hello")
-#stringBits("Hi")
+stringBits("Hi")
 stringBits("Heeololeo")
