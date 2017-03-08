@@ -1,3 +1,4 @@
+## Full walkthrough of sqlite3 with python
 import sqlite3
 import sys
 
