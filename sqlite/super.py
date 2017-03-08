@@ -1,5 +1,6 @@
 import sqlite3
 import sys
+<<<<<<< HEAD
 import numpy as np
 import pandas as pd
 
@@ -171,3 +172,5 @@ genera_power = [["Power augmentation", "Ability to enhance or weaken the powers 
 			["Sublimation", "Ability to transform into a gaseous, mist, or fog-like form"],
 			["Substance mimicry", "Ability to transform into any substance touched"]];
 general_power = np.array(general_power)
+=======
+>>>>>>> 6a67ddde87f84d3dbf26dacbb8ef69dc120bfb78
