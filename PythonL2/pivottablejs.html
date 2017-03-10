@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PivotTable.js</title>
+        
+        <!-- external libs from cdnjs -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/pivottable/1.6.3/pivot.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/1.6.3/pivot.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/1.6.3/d3_renderers.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/1.6.3/c3_renderers.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/1.6.3/export_renderers.min.js"></script>
+
+        <style>
+            body {font-family: Verdana;}
+            .node {
+              border: solid 1px white;
+              font: 10px sans-serif;
+              line-height: 12px;
+              overflow: hidden;
+              position: absolute;
+              text-indent: 2px;
+            }
+            .c3-line, .c3-focused {stroke-width: 3px !important;}
+            .c3-bar {stroke: white !important; stroke-width: 1;}
+            .c3 text { font-size: 12px; color: grey;}
+            .tick line {stroke: white;}
+            .c3-axis path {stroke: grey;}
+            .c3-circle { opacity: 1 !important; }
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript">
+            $(function(){
+                if(window.location != window.parent.location)
+                    $("<a>", {target:"_blank", href:""})
+                        .text("[pop out]").prependTo($("body"));
+                    
+                $("#output").pivotUI( 
+                    $.csv.toArrays($("#output").text()), 
+                    { 
+                        renderers: $.extend(
+                            $.pivotUtilities.renderers, 
+                            $.pivotUtilities.c3_renderers, 
+                            $.pivotUtilities.d3_renderers,
+                            $.pivotUtilities.export_renderers
+                            ),
+                        hiddenAttributes: [""]
+                    }
+                ).show();
+             });
+        </script>
+        <div id="output" style="display: none;">,Company Name,Exchange:Ticker,Country,Region,Primary Industry,AV Industry,AV Sector,FY1997,FY1998,FY1999,FY2000,FY2001,FY2002,FY2003,FY2004,FY2005,FY2006,FY2007,FY2008,FY2009,FY2010,FY2011,FY2012,FY2013,FY2014,FY2015,FY2016,IQ_LTM,IQ_YTD
+1,Toyota Motor Corporation (TSE:7203),TSE:7203,Japan,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,6570,7135,7882,7020,10665,9807,11269,16612,16682,19832,22829,23845,-4559,2967,6855,5554,14402,24304,28196,29175,23022,17809
+2,Volkswagen Aktiengesellschaft (XTRA:VOW3),XTRA:VOW3,Germany,Europe,Automobile Manufacturers,Auto & Transportation,Auto OEM,2073,3389,2659,3657,4648,4202,1612,1159,1815,1890,6898,6966,1328,9481,19952,26874,13102,15597,-1371,0,1808,8600
+12,Daimler AG (XTRA:DAI),XTRA:DAI,Germany,Europe,Automobile Manufacturers,Auto & Transportation,Auto OEM,2290,8596,10180,4719,-1563,6397,628,3727,3624,4209,9678,2946,-2423,6987,8907,8136,10688,10724,13435,13255,13255,13255
+15,General Motors Company (NYSE:GM),NYSE:GM,United States,,Automobile Manufacturers,Auto & Transportation,Auto OEM,0,0,0,0,0,0,0,0,0,0,-5822,-29285,103051,7175,9177,-28695,7458,4246,7718,11684,11684,11684
+16,Ford Motor Company (NYSE:F),NYSE:F,United States,,Automobile Manufacturers,Auto & Transportation,Auto OEM,10939,25396,11026,8234,-7584,953,1370,4853,1996,-15051,-3746,-14404,3026,7149,8681,7720,7001,4342,10252,6796,6796,6796
+19,"Honda Motor Co., Ltd. (TSE:7267)",TSE:7267,Japan,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,3613,4068,4709,3812,3617,5230,5916,6316,6631,8052,7894,8938,2297,3783,6784,3151,5034,7587,7101,5597,6705,7222
+25,Fiat Chrysler Automobiles N.V. (BIT:FCA),BIT:FCA,United Kingdom,Europe,Automobile Manufacturers,Auto & Transportation,Auto OEM,2277,1520,1089,1107,-524,-5078,-1368,-1621,2387,1730,2923,2306,-387,744,2303,2146,1063,1240,273,0,2253,2295
+31,"Nissan Motor Co., Ltd. (TSE:7201)",TSE:7201,Japan,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,945,-165,-5,-6277,2552,3208,6118,6487,6986,7126,6143,6764,-1927,1247,4229,4662,4551,4662,6054,6455,6263,5209
+35,Bayerische Motoren Werke Aktiengesellschaft (DB:BMW),DB:BMW,Germany,Europe,Automobile Manufacturers,Auto & Transportation,Auto OEM,1293,1053,-2149,1753,3418,3476,3379,3747,3465,4347,4083,370,435,5098,7783,8243,8342,9179,9724,0,10385,8160
+51,Hyundai Motor Company (KOSE:A005380),KOSE:A005380,South Korea,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,-24,-57,659,676,1824,2395,2331,2375,2960,1770,2278,1312,4855,9126,9122,10133,10213,8689,7386,0,7075,5274
+98,Peugeot S.A. (ENXTPA:UG),ENXTPA:UG,France,Europe,Automobile Manufacturers,Auto & Transportation,Auto OEM,-563,903,1211,2146,2652,2619,2322,2164,1555,231,1189,-628,-1964,1593,777,-5225,-1927,-255,2011,0,2700,1785
+112,Renault SA (ENXTPA:RNO),ENXTPA:RNO,France,Europe,Automobile Manufacturers,Auto & Transportation,Auto OEM,658,1791,1223,1816,1075,2590,3187,4482,3989,3371,3151,802,-3078,3740,2790,2408,1189,2250,3448,0,3841,2200
+138,Kia Motors Corporation (KOSE:A000270),KOSE:A000270,South Korea,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,0,-3308,280,112,461,745,692,635,523,-230,-87,-259,1066,3065,4123,4509,4216,3332,2707,0,3028,2607
+159,Tata Motors Limited (BSE:500570),BSE:500570,India,Emerging,Automobile Manufacturers,Auto & Transportation,Auto OEM,0,0,0,0,-75,-16,76,216,279,357,467,470,-325,538,1572,2023,2051,2807,3240,2089,2089,2089
+233,Mazda Motor Corporation (TSE:7261),TSE:7261,Japan,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,-146,-48,207,200,-2135,137,248,476,650,1035,1043,1260,-452,-64,142,-487,344,858,1844,1471,980,975
+238,Fuji Heavy Industries Ltd. (TSE:7270),TSE:7270,Japan,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,405,499,603,571,188,494,430,496,216,253,402,281,-190,-4,557,466,820,2896,3454,5452,3852,2632
+243,Suzuki Motor Corporation (TSE:7269),TSE:7269,Japan,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,617,577,480,399,353,346,548,695,943,1073,1222,1387,706,815,1041,1028,1228,1736,1702,2163,2355,1945
+386,Mitsubishi Motors Corporation (TSE:7211),TSE:7211,Japan,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,188,-853,104,-111,-3587,-281,372,-680,-4059,-729,203,424,-473,102,268,367,611,1032,1141,958,-1531,-1622
+434,Isuzu Motors Limited (TSE:7202),TSE:7202,Japan,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,184,207,142,-1329,-646,-251,-982,488,606,701,947,974,101,80,676,897,1217,1660,1623,1642,1447,1024
+516,BAIC Motor Corporation Limited (SEHK:1958),SEHK:1958,China,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,0,0,0,0,0,0,0,0,0,0,0,0,0,0,404,550,454,973,1209,0,1811,1424
+525,BYD Company Limited (SEHK:1211),SEHK:1211,China,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,0,0,6,20,36,111,139,161,90,172,253,198,655,457,251,42,121,127,551,0,857,705
+545,"Yamaha Motor Co., Ltd. (TSE:7272)",TSE:7272,Japan,Asia-Pacific,Motorcycle Manufacturers,Auto & Transportation,Auto OEM,256,240,196,164,140,193,489,771,901,1040,1099,342,-1530,519,539,227,508,861,1080,0,869,672
+711,Mahindra & Mahindra Limited (NSEI:M&M),NSEI:M&M,India,Emerging,Automobile Manufacturers,Auto & Transportation,Auto OEM,0,0,0,0,0,24,51,88,152,270,333,375,337,604,670,667,905,992,761,778,778,778
+764,Chongqing Changan Automobile Company Limited (SZSE:200625),SZSE:200625,China,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,34,2,23,34,38,163,261,213,53,125,95,5,158,289,138,193,482,1095,1455,0,1602,1154
+1058,"Anhui Jianghuai Automobile Group Corp.,Ltd. (SHSE:600418)",SHSE:600418,China,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,0,2,5,14,15,24,42,66,82,65,61,3,62,198,103,80,150,83,146,0,175,138
+1272,"Harley-Davidson, Inc. (NYSE:HOG)",NYSE:HOG,United States,,Motorcycle Manufacturers,Auto & Transportation,Auto OEM,276,336,421,549,673,886,1166,1379,1488,1624,1448,1034,179,390,793,962,1114,1283,1150,0,1022,961
+1298,"Tesla Motors, Inc. (NasdaqGS:TSLA)",NasdaqGS:TSLA,United States,,Automobile Manufacturers,Auto & Transportation,Auto OEM,0,0,0,0,0,0,0,0,0,-30,-78,-83,-56,-154,-254,-396,-71,-285,-876,0,-853,-538
+1310,Ford Otomotiv Sanayi A.S. (IBSE:FROTO),IBSE:FROTO,Turkey,Rest of World,Automobile Manufacturers,Auto & Transportation,Auto OEM,29,0,0,0,-97,-92,272,162,145,171,181,170,113,171,222,175,125,108,239,268,268,268
+1342,"Beiqi Foton Motor Co., Ltd. (SHSE:600166)",SHSE:600166,China,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,12,15,22,12,17,28,47,47,-41,10,67,45,186,278,195,239,119,67,58,0,69,33
+1449,"Thor Industries, Inc. (NYSE:THO)",NYSE:THO,United States,,Automobile Manufacturers,Auto & Transportation,Auto OEM,28,33,52,61,43,82,126,168,194,270,197,152,23,171,153,181,222,253,293,383,421,116
+1468,Geely Automobile Holdings Limited (SEHK:175),SEHK:175,Hong Kong,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,-30,-9,-7,-5,-14,-14,7,12,15,28,41,133,225,276,317,367,480,282,418,0,506,340
+1532,"Nissan Shatai Co., Ltd. (TSE:7222)",TSE:7222,Japan,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,38,38,45,-378,23,58,109,233,276,246,183,275,191,135,94,81,52,90,217,102,87,48
+1675,Hero MotoCorp Limited (BSE:500182),BSE:500182,India,Emerging,Motorcycle Manufacturers,Auto & Transportation,Auto OEM,0,16,26,42,56,104,132,160,182,211,186,210,266,422,359,427,377,427,493,649,649,649
+1699,Tofas Türk Otomobil Fabrikasi A.S. (IBSE:TOASO),IBSE:TOASO,Turkey,Rest of World,Automobile Manufacturers,Auto & Transportation,Auto OEM,11,-15,-28,20,2,-14,7,8,45,49,59,61,74,108,140,139,132,130,170,220,220,220
+1909,"Yulon Motor Co., Ltd (TSEC:2201)",TSEC:2201,Taiwan,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,0,229,149,157,147,196,300,278,225,132,123,36,79,200,183,141,107,117,154,0,141,102
+1943,"Jiangling Motors Corporation, Ltd. (SZSE:000550)",SZSE:000550,China,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,8,-27,-26,10,16,49,70,69,87,109,125,131,180,294,308,275,280,353,365,0,286,180
+1983,Bajaj Auto Limited (NSEI:BAJAJ-AUTO),NSEI:BAJAJ-AUTO,India,Emerging,Motorcycle Manufacturers,Auto & Transportation,Auto OEM,0,103,113,123,43,100,118,146,171,236,265,167,123,343,666,607,651,716,641,823,823,823
+2039,Ferrari N.V. (NYSE:RACE),NYSE:RACE,Italy,Europe,Automobile Manufacturers,Auto & Transportation,Auto OEM,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,353,386,420,458,0,522,437
+2298,UMW Holdings Berhad (KLSE:UMW),KLSE:UMW,Malaysia,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,88,-11,37,46,83,104,104,78,153,169,192,286,190,294,309,450,322,363,60,0,-86,-12
+2382,Public Joint Stock Company Avtovaz (MISX:AVAZ),MISX:AVAZ,Russia,Emerging,Automobile Manufacturers,Auto & Transportation,Auto OEM,0,20,72,216,316,109,44,129,9,95,118,-509,-935,41,147,631,-182,-438,-1266,-833,-833,-833
+2952,"Haima Automobile Group Co., Ltd. (SZSE:000572)",SZSE:000572,China,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,0,-10,0,0,-22,-7,2,6,12,16,134,8,-71,81,86,57,93,47,18,0,22,23
+3038,Public Joint Stock Company GAZ (MISX:GAZA),MISX:GAZA,Russia,Emerging,Automobile Manufacturers,Auto & Transportation,Auto OEM,0,0,0,0,0,0,0,0,82,148,195,-152,-193,45,164,175,87,-41,-37,0,-64,-52
+3166,"Lifan Industry (Group) Co., Ltd (SHSE:601777)",SHSE:601777,China,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,0,0,0,0,0,0,0,0,0,0,61,32,50,64,64,50,65,60,60,0,44,24
+3580,GB Auto (S.A.E.) (CASE:AUTO),CASE:AUTO,Egypt,Rest of World,Automobile Manufacturers,Auto & Transportation,Auto OEM,0,0,0,0,0,0,0,-10,-20,23,32,33,17,23,19,20,14,21,15,0,16,17
+3870,Tan Chong Motor Holdings Berhad (KLSE:TCHONG),KLSE:TCHONG,Malaysia,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,75,-1,83,31,34,33,34,41,41,19,28,69,40,72,68,49,81,38,26,0,-10,-12
+4104,China Motor Corporation (TSEC:2204),TSEC:2204,Taiwan,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,0,0,0,143,120,236,308,202,158,111,51,-214,41,109,115,83,100,105,126,0,135,114
+4277,Oriental Holdings Berhad (KLSE:ORIENT),KLSE:ORIENT,Malaysia,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,114,46,51,50,46,57,52,80,76,98,114,107,97,86,103,84,59,109,80,0,46,21
+4536,"Yulon Nissan Motor Co., Ltd (TSEC:2227)",TSEC:2227,Taiwan,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,0,0,0,0,0,0,7,115,126,60,51,20,19,109,149,198,286,261,162,0,166,131
+4609,Indus Motor Company Limited (KASE:INDU),KASE:INDU,Pakistan,Rest of World,Automobile Manufacturers,Auto & Transportation,Auto OEM,2,3,5,3,3,5,18,22,22,39,40,34,20,50,38,60,47,48,135,166,166,41
+4750,"Winnebago Industries, Inc. (NYSE:WGO)",NYSE:WGO,United States,,Automobile Manufacturers,Auto & Transportation,Auto OEM,7,36,67,74,59,84,79,112,101,68,61,-5,-58,1,12,10,45,65,60,66,71,17
+4789,Yadea Group Holdings Ltd. (SEHK:1585),SEHK:1585,China,Asia-Pacific,Motorcycle Manufacturers,Auto & Transportation,Auto OEM,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,33,45,71,0,77,33
+4852,"Sanyang Motor Co., Ltd. (TSEC:2206)",TSEC:2206,Taiwan,Asia-Pacific,Motorcycle Manufacturers,Auto & Transportation,Auto OEM,0,0,0,0,-16,-28,25,0,36,39,50,9,20,41,57,22,-9,-5,117,0,-13,4
+5497,Brilliance China Automotive Holdings Limited (SEHK:1114),SEHK:1114,Hong Kong,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,55,98,148,212,179,124,182,-65,-168,-95,31,-38,-1,213,283,333,483,776,483,0,458,244
+5755,Shenyang Jinbei Automotive Company Limited (SHSE:600609),SHSE:600609,China,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,49,76,84,36,-118,5,17,-62,-114,14,18,-32,-48,54,15,17,18,6,37,0,30,19
+6124,"Liaoning SG Automotive Group Co., Ltd. (SHSE:600303)",SHSE:600303,China,Asia-Pacific,Automobile Manufacturers,Auto & Transportation,Auto OEM,2,2,3,7,8,9,22,22,18,24,22,16,30,48,34,33,-43,11,22,0,34,8
+6713,Atlas Honda Limited (KASE:ATLH),KASE:ATLH,Pakistan,Rest of World,Motorcycle Manufacturers,Auto & Transportation,Auto OEM,0,0,0,1,2,4,6,8,9,10,8,10,5,10,13,15,21,26,31,39,46,35
+</div>
+    </body>
+</html>
