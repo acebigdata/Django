@@ -1,0 +1,2 @@
+Test write to simple text!
+Test write to simple text again!
